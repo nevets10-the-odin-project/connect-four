@@ -13,6 +13,11 @@ describe Game do
   end
 
   describe '#take_turn' do
+    # Puts which player's turn it is.
+    # Waits for player input
+    # Validates input
+    # Updates board
+    # Checks for game over
   end
 
   describe '#validate_input' do
