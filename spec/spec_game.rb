@@ -21,6 +21,7 @@ describe Game do
   end
 
   describe '#validate_input' do
+    # Confirms that the player input is valid
   end
 
   describe 'game_over?' do
