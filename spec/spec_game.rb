@@ -25,5 +25,6 @@ describe Game do
   end
 
   describe 'game_over?' do
+    # Checks if a player has won or if it's a tie
   end
 end
