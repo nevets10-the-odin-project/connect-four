@@ -4,6 +4,8 @@ require_relative '../lib/game'
 
 describe Game do
   subject(:game) { described_class.new }
+  let(:board) { double('board') }
+  let(:player) { double('player') }
 
   describe '#initialize' do
   end
