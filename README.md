@@ -10,6 +10,7 @@ Classes
         Variables
             players
             current player turn
+            Board
 
         Methods
             initialize
