@@ -55,6 +55,17 @@ describe Board do
 
       expect(board).to be_four_in_a_column('X')
     end
+
+    it 'returns true if there are more than four consecutive symbols in column 0' do
+      selected_index = 0
+      player_symbol = 'X'
+
+      6.times do
+        board.update_board(selected_index, player_symbol)
+      end
+
+      expect(board).to be_four_in_a_column('X')
+    end
   end
 
   context '#four_in_a_row?' do
