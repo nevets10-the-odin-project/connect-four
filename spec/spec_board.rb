@@ -14,15 +14,14 @@ describe Board do
     it 'inserts player symbol at given index 0' do
       selected_index = 0
       player_symbol = 'X'
-      board.update_board(selected_index, player_symbol)
 
-      result = board.board_arr[selected_index]
+      result = board.update_board(selected_index, player_symbol)
 
       expect(result).to eq(player_symbol)
     end
 
     it 'returns nil when index is outside of board array length' do
-      selected_index = 100
+      selected_index = 8
       player_symbol = 'X'
 
       result = board.update_board(selected_index, player_symbol)
