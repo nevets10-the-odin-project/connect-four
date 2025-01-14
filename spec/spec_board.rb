@@ -43,7 +43,15 @@ describe Board do
     end
   end
 
+  context '#four_in_a_column?' do
+    # Checks if there's a four in a row
+  end
+
   context '#four_in_a_row?' do
+    # Checks if there's a four in a row
+  end
+
+  context '#four_in_a_diagonal?' do
     # Checks if there's a four in a row
   end
 
