@@ -2,7 +2,15 @@ class Board
   attr_accessor :board_arr
 
   def initialize
-    @board_arr = Array.new(7, [])
+    @board_arr = build_board
+  end
+
+  def build_board
+    board = []
+    7.times do
+      board << []
+    end
+    board
   end
 
   def update_board(index, symbol)
