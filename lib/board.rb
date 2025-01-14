@@ -6,6 +6,8 @@ class Board
   end
 
   def update_board(index, symbol)
+    return if index >= board_arr.length
+
     @board_arr[index] = symbol
   end
 end
