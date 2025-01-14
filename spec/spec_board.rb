@@ -29,6 +29,9 @@ describe Board do
 
       expect(result).to eq(nil)
     end
+
+    it 'returns nil when column is already full' do
+    end
   end
 
   context '#four_in_a_row?' do
