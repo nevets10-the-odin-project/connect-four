@@ -20,6 +20,15 @@ describe Board do
 
       expect(result).to eq(player_symbol)
     end
+
+    it 'returns nil when index is invalid' do
+      selected_index = 100
+      player_symbol = 'X'
+
+      result = board.update_board(selected_index, player_symbol)
+
+      expect(result).to eq(nil)
+    end
   end
 
   context '#four_in_a_row?' do
