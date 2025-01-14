@@ -24,7 +24,9 @@ class Board
 
   def four_in_a_column?(symbol)
     board_arr.each do |column|
+      next if column.length < 4
       return true if column.last(4).all?(symbol)
     end
+    false
   end
 end

@@ -53,7 +53,7 @@ describe Board do
         board.update_board(selected_index, player_symbol)
       end
 
-      expect(board).to be_four_in_a_column('X')
+      expect(board).to be_four_in_a_column(player_symbol)
     end
 
     it 'returns true if there are more than four consecutive symbols in column 0' do
@@ -64,7 +64,18 @@ describe Board do
         board.update_board(selected_index, player_symbol)
       end
 
-      expect(board).to be_four_in_a_column('X')
+      expect(board).to be_four_in_a_column(player_symbol)
+    end
+
+    it 'returns false if there are less than four consecutive symbols in column 0' do
+      selected_index = 0
+      player_symbol = 'X'
+
+      3.times do
+        board.update_board(selected_index, player_symbol)
+      end
+
+      expect(board).to_not be_four_in_a_column(player_symbol)
     end
   end
 
