@@ -11,6 +11,15 @@ describe Board do
 
   context '#update_board' do
     # Updates board with current player's piece
+    it 'inserts player symbol at given index 0' do
+      selected_index = 0
+      player_symbol = 'X'
+      board.update_board(selected_index, player_symbol)
+
+      result = board.board_arr[selected_index]
+
+      expect(result).to eq(player_symbol)
+    end
   end
 
   context '#four_in_a_row?' do
