@@ -45,7 +45,7 @@ describe Board do
 
   context '#four_in_a_column?' do
     # Checks if there's a four in a row
-    it 'returns true if there are four consecutive symbols in a column' do
+    it 'returns true if there are four consecutive symbols in column 0' do
       selected_index = 0
       player_symbol = 'X'
 
