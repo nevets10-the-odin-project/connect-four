@@ -21,7 +21,7 @@ describe Board do
       expect(result).to eq(player_symbol)
     end
 
-    it 'returns nil when index is invalid' do
+    it 'returns nil when index is outside of board array length' do
       selected_index = 100
       player_symbol = 'X'
 
