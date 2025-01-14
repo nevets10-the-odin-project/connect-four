@@ -30,6 +30,16 @@ describe Board do
     end
 
     it 'returns nil when column is already full' do
+      selected_index = 0
+      player_symbol = 'X'
+
+      7.times do
+        board.update_board(selected_index, player_symbol)
+      end
+
+      result = board.update_board(selected_index, player_symbol)
+
+      expect(result).to eq(nil)
     end
   end
 
