@@ -13,4 +13,10 @@ class Board
 
     @board_arr[index].last
   end
+
+  def four_in_a_column?(symbol)
+    board_arr.each do |column|
+      return true if column.last(4).all?(symbol)
+    end
+  end
 end
