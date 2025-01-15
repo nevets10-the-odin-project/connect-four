@@ -45,10 +45,11 @@ describe Board do
 
   context '#four_in_a_column?' do
     # Checks if there's a four in a row
-    it 'returns true if there are four consecutive symbols in column 0' do
-      selected_index = 0
-      player_symbol = 'X'
+    selected_index = 0
+    player_symbol = 'X'
+    other_symbol = 'O'
 
+    it 'returns true if there are four consecutive symbols in column 0' do
       4.times do
         board.update_board(selected_index, player_symbol)
       end
@@ -57,9 +58,6 @@ describe Board do
     end
 
     it 'returns true if there are more than four consecutive symbols in column 0' do
-      selected_index = 0
-      player_symbol = 'X'
-
       6.times do
         board.update_board(selected_index, player_symbol)
       end
@@ -68,9 +66,6 @@ describe Board do
     end
 
     it 'returns false if there are less than four consecutive symbols in column 0' do
-      selected_index = 0
-      player_symbol = 'X'
-
       3.times do
         board.update_board(selected_index, player_symbol)
       end
@@ -79,10 +74,6 @@ describe Board do
     end
 
     it 'returns false if there are three consecutive symbols, a different fourth symbol, and then the original symbol' do
-      selected_index = 0
-      player_symbol = 'X'
-      other_symbol = 'O'
-
       3.times do
         board.update_board(selected_index, player_symbol)
       end
