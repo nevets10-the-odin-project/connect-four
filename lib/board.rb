@@ -29,4 +29,16 @@ class Board
     end
     false
   end
+
+  def four_in_a_row?(row_index, symbol)
+    row = []
+
+    ((row_index - 3)..(row_index + 3)).each do |i|
+      next if i < 0 || i >= board_arr.length
+
+      row << board_arr[i][row_index]
+    end
+
+    row.join('').match?("#{symbol}#{symbol}#{symbol}#{symbol}")
+  end
 end
