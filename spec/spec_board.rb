@@ -3,14 +3,13 @@
 require_relative '../lib/board'
 
 describe Board do
-  subject(:board) { described_class.new }
-
   context '#initialize' do
     # Nothing to test
   end
 
   context '#update_board' do
     # Updates board with current player's piece
+    subject(:board) { described_class.new }
     it 'inserts player symbol at given index 0' do
       selected_index = 0
       player_symbol = 'X'
@@ -45,6 +44,7 @@ describe Board do
 
   context '#four_in_a_column?' do
     # Checks if there's a four in a column
+    subject(:board) { described_class.new }
     selected_index = 0
     player_symbol = 'X'
     other_symbol = 'O'
@@ -87,6 +87,7 @@ describe Board do
 
   context '#four_in_a_row?' do
     # Checks if there's a four in a row
+    subject(:board) { described_class.new }
     selected_index = 0
     player_symbol = 'X'
     other_symbol = 'O'
@@ -94,12 +95,12 @@ describe Board do
     it 'returns true if there are four consecutive symbols in a row' do
       i = 0
 
-      while i > 7
+      while i < 7
         board.update_board(i, player_symbol)
         i += 1
       end
 
-      expect(board).to be_four_in_a_row
+      expect(board).to be_four_in_a_row(selected_index, player_symbol)
     end
   end
 
