@@ -111,6 +111,18 @@ describe Board do
 
       expect(board).to_not be_four_in_a_row(selected_index, player_symbol)
     end
+
+    it 'returns true if there are four consecutive symbols in a row, but with other symbol' do
+      board.update_board(0, player_symbol)
+      board.update_board(1, other_symbol)
+      board.update_board(2, player_symbol)
+      board.update_board(3, player_symbol)
+      board.update_board(4, player_symbol)
+      board.update_board(5, player_symbol)
+      board.update_board(6, other_symbol)
+
+      expect(board).to_not be_four_in_a_row(selected_index, player_symbol)
+    end
   end
 
   context '#four_in_a_diagonal?' do
