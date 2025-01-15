@@ -44,7 +44,7 @@ describe Board do
   end
 
   context '#four_in_a_column?' do
-    # Checks if there's a four in a row
+    # Checks if there's a four in a column
     selected_index = 0
     player_symbol = 'X'
     other_symbol = 'O'
