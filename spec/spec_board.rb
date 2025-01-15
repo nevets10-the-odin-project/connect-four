@@ -77,6 +77,21 @@ describe Board do
 
       expect(board).to_not be_four_in_a_column(player_symbol)
     end
+
+    it 'returns false if there are three consecutive symbols, a different fourth symbol, and then the original symbol' do
+      selected_index = 0
+      player_symbol = 'X'
+      other_symbol = 'O'
+
+      3.times do
+        board.update_board(selected_index, player_symbol)
+      end
+
+      board.update_board(selected_index, other_symbol)
+      board.update_board(selected_index, player_symbol)
+
+      expect(board).to_not be_four_in_a_column(player_symbol)
+    end
   end
 
   context '#four_in_a_row?' do
