@@ -87,6 +87,20 @@ describe Board do
 
   context '#four_in_a_row?' do
     # Checks if there's a four in a row
+    selected_index = 0
+    player_symbol = 'X'
+    other_symbol = 'O'
+
+    it 'returns true if there are four consecutive symbols in a row' do
+      i = 0
+
+      while i > 7
+        board.update_board(i, player_symbol)
+        i += 1
+      end
+
+      expect(board).to be_four_in_a_row
+    end
   end
 
   context '#four_in_a_diagonal?' do
