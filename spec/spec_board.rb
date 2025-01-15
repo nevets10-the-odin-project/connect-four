@@ -102,6 +102,15 @@ describe Board do
 
       expect(board).to be_four_in_a_row(selected_index, player_symbol)
     end
+
+    it 'returns false if there are not four consecutive symbols in a row' do
+      board.update_board(0, player_symbol)
+      board.update_board(1, other_symbol)
+      board.update_board(2, other_symbol)
+      board.update_board(3, player_symbol)
+
+      expect(board).to_not be_four_in_a_row(selected_index, player_symbol)
+    end
   end
 
   context '#four_in_a_diagonal?' do
