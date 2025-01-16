@@ -35,8 +35,6 @@ class Board
     row = []
 
     ((cur_col_index - 3)..(cur_col_index + 3)).each do |col_index|
-      next if col_index < 0 || col_index >= board_arr.length
-
       row << board_arr[col_index][row_index]
     end
 
