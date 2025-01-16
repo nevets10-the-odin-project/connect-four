@@ -42,7 +42,8 @@ class Board
   end
 
   def four_in_a_diagonal?(cur_col_index, symbol)
-    row_index = board_arr[cur_col_index].index(board_arr[cur_col_index].last)
+    column = board_arr[cur_col_index]
+    row_index = column.length - 1
 
     diag1 = []
     diag1_row_tracker = row_index + 3
@@ -51,8 +52,8 @@ class Board
     diag2_row_tracker = row_index - 3
 
     ((cur_col_index - 3)..(cur_col_index + 3)).each do |col_index|
-      diag1 << board_arr[col_index][diag1_row_tracker] unless diag1_row_tracker < 0 || diag1_row_tracker > 6
-      diag2 << board_arr[col_index][diag2_row_tracker] unless diag2_row_tracker < 0 || diag2_row_tracker > 6
+      diag1 << board_arr[col_index][diag1_row_tracker]
+      diag2 << board_arr[col_index][diag2_row_tracker]
 
       diag1_row_tracker -= 1
       diag2_row_tracker += 1
