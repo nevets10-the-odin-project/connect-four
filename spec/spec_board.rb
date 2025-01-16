@@ -127,6 +127,29 @@ describe Board do
 
   context '#four_in_a_diagonal?' do
     # Checks if there's a four in a row
+    subject(:board) { described_class.new }
+    selected_index = 0
+    player_symbol = 'X'
+    other_symbol = 'O'
+
+    it 'returns true if there are four consecutive symbols in a diagonal; top left to bottom right' do
+      # I don't want to think harder than I have to for test setups
+      board.update_board(0, other_symbol)
+      board.update_board(0, player_symbol)
+      board.update_board(0, other_symbol)
+      board.update_board(0, player_symbol)
+
+      board.update_board(1, player_symbol)
+      board.update_board(1, other_symbol)
+      board.update_board(1, player_symbol)
+
+      board.update_board(2, other_symbol)
+      board.update_board(2, player_symbol)
+
+      board.update_board(3, player_symbol)
+
+      expect(board).to_not be_four_in_a_diagonal(selected_index, player_symbol)
+    end
   end
 
   context '#tie?' do
