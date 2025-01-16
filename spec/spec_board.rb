@@ -216,7 +216,7 @@ describe Board do
       end
     end
 
-    expect(board).to be_filled
+    expect(board).to be_full
   end
 
   context '#tied?' do
