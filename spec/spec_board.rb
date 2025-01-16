@@ -128,7 +128,6 @@ describe Board do
   context '#four_in_a_diagonal?' do
     # Checks if there's a four in a row
     subject(:board) { described_class.new }
-    selected_index = 0
     player_symbol = 'X'
     other_symbol = 'O'
 
@@ -190,7 +189,13 @@ describe Board do
     end
   end
 
-  context '#tie?' do
+  context '#tied?' do
     # Check if the board is full
+    subject(:board) { described_class.new }
+    player_symbol = 'X'
+    other_symbol = 'O'
+
+    xit 'returns true if all slots are filled and there are no four consecutive symbols anywhere' do
+    end
   end
 end
