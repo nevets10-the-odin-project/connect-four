@@ -32,7 +32,6 @@ class Board
 
   def four_in_a_row?(cur_col_index, symbol)
     row_index = board_arr[cur_col_index].index(board_arr[cur_col_index].last)
-
     row = []
 
     ((cur_col_index - 3)..(cur_col_index + 3)).each do |col_index|
@@ -44,15 +43,28 @@ class Board
     row.join('').match?("#{symbol}#{symbol}#{symbol}#{symbol}")
   end
 
-  # def four_in_a_diagonal?(row_index, symbol)
-  #   diagonal = []
+  def four_in_a_diagonal?(cur_col_index, symbol)
+    row_index = board_arr[cur_col_index].index(board_arr[cur_col_index].last)
 
-  #   ((row_index - 3)..(row_index + 3)).each do |col_index|
-  #     next if col_index < 0 || col_index >= board_arr.length
+    diag1 = []
+    diag1_row_tracker = row_index + 3
 
-  #     diagonal << board_arr[col_index][row_index]
-  #   end
+    diag2 = []
+    diag2_row_tracker = row_index - 3
 
-  #   diagonal.join('').match?("#{symbol}#{symbol}#{symbol}#{symbol}")
-  # end
+    ((cur_col_index - 3)..(cur_col_index + 3)).each do |col_index|
+      next if col_index < 0 || col_index >= board_arr.length
+
+      diag1 << board_arr[col_index][diag1_row_tracker] if diag1_row_tracker < 0 || diag1_row_tracker > 6
+      diag2 << board_arr[col_index][diag2_row_tracker] if diag2_row_tracker < 0 || diag2_row_tracker > 6
+
+      diag1_row_tracker -= 1
+      diag2_row_tracker += 1
+    end
+
+    result1 = diag1.join('').match?("#{symbol}#{symbol}#{symbol}#{symbol}")
+    result2 = diag2.join('').match?("#{symbol}#{symbol}#{symbol}#{symbol}")
+
+    result1 || result2
+  end
 end

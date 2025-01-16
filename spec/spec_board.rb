@@ -132,7 +132,7 @@ describe Board do
     player_symbol = 'X'
     other_symbol = 'O'
 
-    xit 'returns true if there are four consecutive symbols in a diagonal; top left to bottom right' do
+    it 'returns true if there are four consecutive symbols in a diagonal; top left to bottom right' do
       # I don't want to think harder than I have to for test setups
       board.update_board(0, other_symbol)
       board.update_board(0, player_symbol)
