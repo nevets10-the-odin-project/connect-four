@@ -196,7 +196,7 @@ describe Board do
     other_symbol = 'O'
 
     it 'returns true if the board is full' do
-      # Fill out the board in a tie
+      # Fill out the board
       3.times do
         board.update_board(0, player_symbol)
         board.update_board(1, player_symbol)
@@ -219,7 +219,7 @@ describe Board do
     end
 
     it 'returns false if the board is not full' do
-      # Fill out the board in a tie
+      # Don't fill the board
       3.times do
         board.update_board(0, player_symbol)
         board.update_board(1, player_symbol)
@@ -244,10 +244,31 @@ describe Board do
   context '#tied?' do
     # Check if the game is tied
     subject(:board) { described_class.new }
+    selected_col_index = 3
     player_symbol = 'X'
     other_symbol = 'O'
 
-    xit 'returns true if all slots are filled and there are no four consecutive symbols anywhere' do
+    it 'returns true if all slots are filled and there are no four consecutive symbols anywhere' do
+      # Fill out the board in a tie
+      3.times do
+        board.update_board(0, player_symbol)
+        board.update_board(1, player_symbol)
+        board.update_board(2, other_symbol)
+        board.update_board(3, other_symbol)
+        board.update_board(4, player_symbol)
+        board.update_board(5, player_symbol)
+        board.update_board(6, other_symbol)
+
+        board.update_board(0, other_symbol)
+        board.update_board(1, other_symbol)
+        board.update_board(2, player_symbol)
+        board.update_board(3, player_symbol)
+        board.update_board(4, other_symbol)
+        board.update_board(5, other_symbol)
+        board.update_board(6, player_symbol)
+      end
+
+      expect(board).to be_tied(selected_col_index, player_symbol)
     end
   end
 end

@@ -70,4 +70,16 @@ class Board
 
     columns.all?(true)
   end
+
+  def tied?(cur_col_index, player_symbol)
+    return unless full?
+
+    column_win = four_in_a_column?(player_symbol)
+    row_win = four_in_a_row?(cur_col_index, player_symbol)
+    diag_win = four_in_a_diagonal?(cur_col_index, player_symbol)
+
+    return true unless column_win || row_win || diag_win
+
+    false
+  end
 end
