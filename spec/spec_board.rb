@@ -214,9 +214,9 @@ describe Board do
         board.update_board(5, other_symbol)
         board.update_board(6, player_symbol)
       end
-    end
 
-    expect(board).to be_full
+      expect(board).to be_full
+    end
   end
 
   context '#tied?' do

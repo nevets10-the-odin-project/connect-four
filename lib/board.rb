@@ -64,4 +64,10 @@ class Board
 
     result1 || result2
   end
+
+  def full?
+    columns = board_arr.map { |column| column.length == 6 }
+
+    columns.all?(true)
+  end
 end
