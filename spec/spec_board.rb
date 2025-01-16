@@ -217,6 +217,28 @@ describe Board do
 
       expect(board).to be_full
     end
+
+    it 'returns false if the board is not full' do
+      # Fill out the board in a tie
+      3.times do
+        board.update_board(0, player_symbol)
+        board.update_board(1, player_symbol)
+        board.update_board(2, other_symbol)
+        board.update_board(3, other_symbol)
+        board.update_board(4, player_symbol)
+        board.update_board(5, player_symbol)
+        board.update_board(6, other_symbol)
+
+        board.update_board(0, other_symbol)
+        board.update_board(1, other_symbol)
+        board.update_board(2, player_symbol)
+        board.update_board(3, player_symbol)
+        board.update_board(4, other_symbol)
+        board.update_board(5, other_symbol)
+      end
+
+      expect(board).to_not be_full
+    end
   end
 
   context '#tied?' do
