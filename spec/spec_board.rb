@@ -148,7 +148,7 @@ describe Board do
 
       board.update_board(3, player_symbol)
 
-      expect(board).to be_four_in_a_diagonal(selected_index, player_symbol)
+      expect(board).to be_four_in_a_diagonal(3, player_symbol)
     end
 
     it 'returns true if there are four consecutive symbols in a diagonal; top right to bottom left' do
@@ -167,7 +167,7 @@ describe Board do
 
       board.update_board(0, player_symbol)
 
-      expect(board).to be_four_in_a_diagonal(selected_index, player_symbol)
+      expect(board).to be_four_in_a_diagonal(0, player_symbol)
     end
   end
 
