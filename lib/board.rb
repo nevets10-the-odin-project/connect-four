@@ -53,10 +53,8 @@ class Board
     diag2_row_tracker = row_index - 3
 
     ((cur_col_index - 3)..(cur_col_index + 3)).each do |col_index|
-      next if col_index < 0 || col_index >= board_arr.length
-
-      diag1 << board_arr[col_index][diag1_row_tracker] if diag1_row_tracker < 0 || diag1_row_tracker > 6
-      diag2 << board_arr[col_index][diag2_row_tracker] if diag2_row_tracker < 0 || diag2_row_tracker > 6
+      diag1 << board_arr[col_index][diag1_row_tracker] unless diag1_row_tracker < 0 || diag1_row_tracker > 6
+      diag2 << board_arr[col_index][diag2_row_tracker] unless diag2_row_tracker < 0 || diag2_row_tracker > 6
 
       diag1_row_tracker -= 1
       diag2_row_tracker += 1
