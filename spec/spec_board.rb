@@ -189,8 +189,38 @@ describe Board do
     end
   end
 
-  context '#tied?' do
+  context '#full?' do
     # Check if the board is full
+    subject(:board) { described_class.new }
+    player_symbol = 'X'
+    other_symbol = 'O'
+
+    it 'returns true if the board is full' do
+      # Fill out the board in a tie
+      3.times do
+        board.update_board(0, player_symbol)
+        board.update_board(1, player_symbol)
+        board.update_board(2, other_symbol)
+        board.update_board(3, other_symbol)
+        board.update_board(4, player_symbol)
+        board.update_board(5, player_symbol)
+        board.update_board(6, other_symbol)
+
+        board.update_board(0, other_symbol)
+        board.update_board(1, other_symbol)
+        board.update_board(2, player_symbol)
+        board.update_board(3, player_symbol)
+        board.update_board(4, other_symbol)
+        board.update_board(5, other_symbol)
+        board.update_board(6, player_symbol)
+      end
+    end
+
+    expect(board).to be_filled
+  end
+
+  context '#tied?' do
+    # Check if the game is tied
     subject(:board) { described_class.new }
     player_symbol = 'X'
     other_symbol = 'O'
