@@ -270,5 +270,28 @@ describe Board do
 
       expect(board).to be_tied(selected_col_index, player_symbol)
     end
+
+    it 'returns false if all slots are filled and there is at least one win' do
+      # Fill out the board in a tie
+      3.times do
+        board.update_board(0, player_symbol)
+        board.update_board(1, player_symbol)
+        board.update_board(2, other_symbol)
+        board.update_board(3, other_symbol)
+        board.update_board(4, player_symbol)
+        board.update_board(5, player_symbol)
+        board.update_board(6, player_symbol)
+
+        board.update_board(0, other_symbol)
+        board.update_board(1, other_symbol)
+        board.update_board(2, player_symbol)
+        board.update_board(3, player_symbol)
+        board.update_board(4, other_symbol)
+        board.update_board(5, other_symbol)
+        board.update_board(6, player_symbol)
+      end
+
+      expect(board).to_not be_tied(6, player_symbol)
+    end
   end
 end
