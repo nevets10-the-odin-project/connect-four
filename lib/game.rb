@@ -25,7 +25,7 @@ class Game
   end
 
   def game_over?
-    return false if @board.full?
+    return true if @board.full?
 
     column_win = @board.four_in_a_column?(@players[current_player].symbol)
     row_win = @board.four_in_a_row?(@player_input, @players[current_player].symbol)

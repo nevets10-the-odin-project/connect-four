@@ -76,13 +76,29 @@ describe Game do
         allow(board).to receive(:four_in_a_column?).and_return(false)
         allow(board).to receive(:four_in_a_row?).and_return(false)
         allow(board).to receive(:four_in_a_diagonal?).and_return(false)
-        allow(board).to receive(:tied?).and_return(false)
+        allow(board).to receive(:full?).and_return(false)
         game.player_input = 2
       end
 
       it 'returns false' do
         result = game.game_over?
         expect(result).to be(false)
+      end
+    end
+
+    context 'returns true when there is a tie' do
+      before do
+        allow(board).to receive(:four_in_a_column?).and_return(false)
+        allow(board).to receive(:four_in_a_row?).and_return(false)
+        allow(board).to receive(:four_in_a_diagonal?).and_return(false)
+        allow(board).to receive(:full?).and_return(true)
+        game.player_input = 2
+        game.board = board
+      end
+
+      it 'returns true' do
+        result = game.game_over?
+        expect(result).to be(true)
       end
     end
   end
