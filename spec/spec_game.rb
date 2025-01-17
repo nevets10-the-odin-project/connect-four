@@ -102,6 +102,54 @@ describe Game do
         expect(result).to be(true)
       end
     end
+
+    context 'returns true when there is a column win' do
+      before do
+        allow(board).to receive(:four_in_a_column?).and_return(true)
+        allow(board).to receive(:four_in_a_row?).and_return(false)
+        allow(board).to receive(:four_in_a_diagonal?).and_return(false)
+        allow(board).to receive(:full?).and_return(false)
+        game.player_input = 2
+        game.board = board
+      end
+
+      it 'returns true' do
+        result = game.game_over?
+        expect(result).to be(true)
+      end
+    end
+
+    context 'returns true when there is a row win' do
+      before do
+        allow(board).to receive(:four_in_a_column?).and_return(false)
+        allow(board).to receive(:four_in_a_row?).and_return(true)
+        allow(board).to receive(:four_in_a_diagonal?).and_return(false)
+        allow(board).to receive(:full?).and_return(false)
+        game.player_input = 2
+        game.board = board
+      end
+
+      it 'returns true' do
+        result = game.game_over?
+        expect(result).to be(true)
+      end
+    end
+
+    context 'returns true when there is a diagonal win' do
+      before do
+        allow(board).to receive(:four_in_a_column?).and_return(false)
+        allow(board).to receive(:four_in_a_row?).and_return(false)
+        allow(board).to receive(:four_in_a_diagonal?).and_return(true)
+        allow(board).to receive(:full?).and_return(false)
+        game.player_input = 2
+        game.board = board
+      end
+
+      it 'returns true' do
+        result = game.game_over?
+        expect(result).to be(true)
+      end
+    end
   end
 
   describe '#take_turn' do
