@@ -7,6 +7,7 @@ describe Game do
   subject(:game) { described_class.new }
   let(:board) { double('board') }
   let(:player) { double('player') }
+  error = 'Number must be from 1 to 7.'
 
   describe '#initialize' do
     # Nothing to test
@@ -21,9 +22,18 @@ describe Game do
       end
 
       it 'stops loop and does not display error message' do
-        error = 'Number must be from 1 to 7.'
-
         expect(game).to_not receive(:puts).with(error)
+        game.get_player_input
+      end
+    end
+
+    context 'when player input is incorrect once, then correct' do
+      before do
+        allow(game).to receive(:gets).and_return('8', '5')
+      end
+
+      it 'completes the loop and displays error message once' do
+        expect(game).to receive(:puts).with(error)
         game.get_player_input
       end
     end
