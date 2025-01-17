@@ -59,6 +59,14 @@ describe Game do
         game.validate_input(input)
       end
     end
+
+    context 'when given an invalid input as argument' do
+      it 'returns nil' do
+        input = 8
+        result = game.validate_input(input)
+        expect(result).to be_nil
+      end
+    end
   end
 
   describe '#take_turn' do
