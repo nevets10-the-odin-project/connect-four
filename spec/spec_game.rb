@@ -52,6 +52,13 @@ describe Game do
 
   describe '#validate_input' do
     # Confirms that the player input is valid
+    context 'when given a valid input as argument' do
+      it 'returns valid input' do
+        input = 1
+        expect(game).to_not receive(:puts).with(nil)
+        game.validate_input(input)
+      end
+    end
   end
 
   describe '#take_turn' do
