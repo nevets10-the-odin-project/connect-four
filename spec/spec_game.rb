@@ -37,6 +37,17 @@ describe Game do
         game.get_player_input
       end
     end
+
+    context 'when player inputs two incorrect values before a correct value' do
+      before do
+        allow(game).to receive(:gets).and_return('10', '0', '2')
+      end
+
+      it 'completes loop and displays error message twice' do
+        expect(game).to receive(:puts).with(error).twice
+        game.get_player_input
+      end
+    end
   end
 
   describe '#validate_input' do
