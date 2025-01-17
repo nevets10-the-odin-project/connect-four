@@ -153,6 +153,7 @@ describe Game do
   end
 
   describe '#take_turn' do
+    # Puts the board
     # Puts which player's turn it is.
     # Waits for player input
     # Validates input
