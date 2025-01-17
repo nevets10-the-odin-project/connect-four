@@ -13,7 +13,7 @@ describe Game do
     # Nothing to test
   end
 
-  describe '#get_player_input' do
+  describe '#player_input' do
     # Get the player's input
     context 'when player input is between 1 and 7' do
       before do
@@ -23,7 +23,7 @@ describe Game do
 
       it 'stops loop and does not display error message' do
         expect(game).to_not receive(:puts).with(error)
-        game.get_player_input
+        game.player_input
       end
     end
 
@@ -34,7 +34,7 @@ describe Game do
 
       it 'completes the loop and displays error message once' do
         expect(game).to receive(:puts).with(error)
-        game.get_player_input
+        game.player_input
       end
     end
 
@@ -45,7 +45,7 @@ describe Game do
 
       it 'completes loop and displays error message twice' do
         expect(game).to receive(:puts).with(error).twice
-        game.get_player_input
+        game.player_input
       end
     end
   end

@@ -10,7 +10,7 @@ class Game
     @board = Board.new
   end
 
-  def get_player_input
+  def player_input
     loop do
       user_input = gets.chomp
       validated_input = validate_input(user_input.to_i) if user_input.match?(/^\d+$/)
