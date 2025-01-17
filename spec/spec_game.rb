@@ -12,16 +12,20 @@ describe Game do
     # Nothing to test
   end
 
+  context '#get_player_input' do
+    # Get the player's input
+  end
+
+  context '#validate_input' do
+    # Confirms that the player input is valid
+  end
+
   context '#take_turn' do
     # Puts which player's turn it is.
     # Waits for player input
     # Validates input
     # Updates board
     # Checks for game over
-  end
-
-  context '#validate_input' do
-    # Confirms that the player input is valid
   end
 
   context 'game_over?' do
