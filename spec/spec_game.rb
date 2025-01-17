@@ -55,8 +55,8 @@ describe Game do
     context 'when given a valid input as argument' do
       it 'returns valid input' do
         input = 1
-        expect(game).to_not receive(:puts).with(nil)
-        game.validate_input(input)
+        result = game.validate_input(input)
+        expect(result).to eq(1)
       end
     end
 
