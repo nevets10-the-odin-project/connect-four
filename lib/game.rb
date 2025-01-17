@@ -2,7 +2,7 @@ require_relative 'player'
 require_relative 'board'
 
 class Game
-  attr_accessor :players, :current_player, :board
+  attr_accessor :players, :player_input, :current_player, :board
 
   def initialize
     @players = [Player.new('X'), Player.new('O')]
@@ -22,5 +22,17 @@ class Game
 
   def validate_input(input)
     input if input.between?(1, 7)
+  end
+
+  def game_over?
+    return false if @board.full?
+
+    column_win = @board.four_in_a_column?(@players[current_player].symbol)
+    row_win = @board.four_in_a_row?(@player_input, @players[current_player].symbol)
+    diag_win = @board.four_in_a_diagonal?(@player_input, @players[current_player].symbol)
+
+    return true if column_win || row_win || diag_win
+
+    false
   end
 end

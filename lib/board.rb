@@ -31,7 +31,7 @@ class Board
   end
 
   def four_in_a_row?(cur_col_index, symbol)
-    row_index = board_arr[cur_col_index].index(board_arr[cur_col_index].last)
+    row_index = board_arr[cur_col_index].index(board_arr[cur_col_index].last) || 0
     row = []
 
     ((cur_col_index - 3)..(cur_col_index + 3)).each do |col_index|
