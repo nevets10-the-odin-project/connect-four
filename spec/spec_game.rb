@@ -77,7 +77,7 @@ describe Game do
         allow(board).to receive(:four_in_a_row?).and_return(false)
         allow(board).to receive(:four_in_a_diagonal?).and_return(false)
         allow(board).to receive(:full?).and_return(false)
-        game.player_input = 2
+        game.player_selection = 2
         game.board = board
       end
 
@@ -93,7 +93,7 @@ describe Game do
         allow(board).to receive(:four_in_a_row?).and_return(false)
         allow(board).to receive(:four_in_a_diagonal?).and_return(false)
         allow(board).to receive(:full?).and_return(true)
-        game.player_input = 2
+        game.player_selection = 2
         game.board = board
       end
 
@@ -109,7 +109,7 @@ describe Game do
         allow(board).to receive(:four_in_a_row?).and_return(false)
         allow(board).to receive(:four_in_a_diagonal?).and_return(false)
         allow(board).to receive(:full?).and_return(false)
-        game.player_input = 2
+        game.player_selection = 2
         game.board = board
       end
 
@@ -125,7 +125,7 @@ describe Game do
         allow(board).to receive(:four_in_a_row?).and_return(true)
         allow(board).to receive(:four_in_a_diagonal?).and_return(false)
         allow(board).to receive(:full?).and_return(false)
-        game.player_input = 2
+        game.player_selection = 2
         game.board = board
       end
 
@@ -141,7 +141,7 @@ describe Game do
         allow(board).to receive(:four_in_a_row?).and_return(false)
         allow(board).to receive(:four_in_a_diagonal?).and_return(true)
         allow(board).to receive(:full?).and_return(false)
-        game.player_input = 2
+        game.player_selection = 2
         game.board = board
       end
 
