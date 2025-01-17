@@ -8,11 +8,11 @@ describe Game do
   let(:board) { double('board') }
   let(:player) { double('player') }
 
-  context '#initialize' do
+  describe '#initialize' do
     # Nothing to test
   end
 
-  context '#get_player_input' do
+  describe '#get_player_input' do
     # Get the player's input
 
     before do
@@ -28,11 +28,11 @@ describe Game do
     end
   end
 
-  context '#validate_input' do
+  describe '#validate_input' do
     # Confirms that the player input is valid
   end
 
-  context '#take_turn' do
+  describe '#take_turn' do
     # Puts which player's turn it is.
     # Waits for player input
     # Validates input
@@ -40,7 +40,7 @@ describe Game do
     # Checks for game over
   end
 
-  context 'game_over?' do
+  describe 'game_over?' do
     # Checks if a player has won or if it's a tie
   end
 end
