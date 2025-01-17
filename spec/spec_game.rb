@@ -69,15 +69,28 @@ describe Game do
     end
   end
 
+  describe 'game_over?' do
+    # Checks if a player has won or if it's a tie
+    context 'returns false when there are still moves and no winner' do
+      before do
+        allow(board).to receive(:four_in_a_column?).and_return(false)
+        allow(board).to receive(:four_in_a_row?).and_return(false)
+        allow(board).to receive(:four_in_a_diagonal?).and_return(false)
+        allow(board).to receive(:tied?).and_return(false)
+      end
+
+      it 'returns false' do
+        result = game.game_over?
+        expect(result).to be_false
+      end
+    end
+  end
+
   describe '#take_turn' do
     # Puts which player's turn it is.
     # Waits for player input
     # Validates input
     # Updates board
     # Checks for game over
-  end
-
-  describe 'game_over?' do
-    # Checks if a player has won or if it's a tie
   end
 end
