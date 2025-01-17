@@ -78,6 +78,7 @@ describe Game do
         allow(board).to receive(:four_in_a_diagonal?).and_return(false)
         allow(board).to receive(:full?).and_return(false)
         game.player_input = 2
+        game.board = board
       end
 
       it 'returns false' do
