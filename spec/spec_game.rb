@@ -14,6 +14,18 @@ describe Game do
 
   context '#get_player_input' do
     # Get the player's input
+
+    before do
+      input = '3'
+      allow(game).to receive(:gets).and_return(input)
+    end
+
+    it 'stops loop and does not display error message' do
+      error = 'Number must be from 1 to 7.'
+
+      expect(game).to_not receive(:puts).with(error)
+      game.get_player_input
+    end
   end
 
   context '#validate_input' do
