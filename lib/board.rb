@@ -56,8 +56,17 @@ class Board
     ((cur_col_index - 3)..(cur_col_index + 3)).each do |col_index|
       next if col_index >= board_arr.length
 
-      value1 = diag1_row_tracker.negative? ? nil : board_arr[col_index][diag1_row_tracker]
-      value2 = diag2_row_tracker.negative? ? nil : board_arr[col_index][diag2_row_tracker]
+      value1 = if diag1_row_tracker.negative? || col_index.negative?
+                 nil
+               else
+                 board_arr[col_index][diag1_row_tracker]
+               end
+
+      value2 = if diag2_row_tracker.negative? || col_index.negative?
+                 nil
+               else
+                 board_arr[col_index][diag2_row_tracker]
+               end
 
       diag1 << value1
       diag2 << value2
@@ -68,7 +77,6 @@ class Board
 
     result1 = diag1.join('').match?("#{symbol}#{symbol}#{symbol}#{symbol}")
     result2 = diag2.join('').match?("#{symbol}#{symbol}#{symbol}#{symbol}")
-
     result1 || result2
   end
 
