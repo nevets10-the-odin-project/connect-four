@@ -38,6 +38,7 @@ class Game
 
   def play
     loop do
+      system 'clear -x'
       board.print_board
       puts "    It's #{players[current_player].symbol}'s turn!"
       @player_selection = player_input
