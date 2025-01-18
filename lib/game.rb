@@ -35,4 +35,16 @@ class Game
 
     false
   end
+
+  def take_turn
+    loop do
+      board.print_board
+      puts "    It's #{players[current_player].symbol}'s turn!"
+      @player_selection = player_input
+      board.update_board(@player_selection, players[current_player].symbol)
+      return if game_over?
+
+      @current_player >= 1 ? @current_player = 0 : @current_player += 1
+    end
+  end
 end
