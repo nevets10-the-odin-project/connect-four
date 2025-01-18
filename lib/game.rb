@@ -16,12 +16,15 @@ class Game
       validated_input = validate_input(user_input.to_i) if user_input.match?(/^\d+$/)
       return validated_input - 1 if validated_input
 
-      puts 'Number must be from 1 to 7.'
+      puts 'Number must be from 1 to 7 and not a filled column.'
     end
   end
 
   def validate_input(input)
-    input if input.between?(1, 7)
+    return nil unless input.between?(1, 7)
+    return nil if @board.board_arr[input - 1].length >= 6
+
+    input
   end
 
   def game_over?
