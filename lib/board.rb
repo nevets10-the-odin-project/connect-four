@@ -86,4 +86,16 @@ class Board
 
     false
   end
+
+  def print_board
+    # Print the board
+    puts '  1  2  3  4  5  6  7'
+    (0..5).reverse_each do |row_index|
+      print '|'
+      board_arr.each do |column|
+        print column[row_index] || ' - '
+      end
+      puts '|'
+    end
+  end
 end
