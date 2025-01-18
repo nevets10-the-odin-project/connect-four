@@ -56,8 +56,11 @@ class Board
     ((cur_col_index - 3)..(cur_col_index + 3)).each do |col_index|
       next if col_index >= board_arr.length
 
-      diag1 << board_arr[col_index][diag1_row_tracker]
-      diag2 << board_arr[col_index][diag2_row_tracker]
+      value1 = diag1_row_tracker.negative? ? nil : board_arr[col_index][diag1_row_tracker]
+      value2 = diag2_row_tracker.negative? ? nil : board_arr[col_index][diag2_row_tracker]
+
+      diag1 << value1
+      diag2 << value2
 
       diag1_row_tracker -= 1
       diag2_row_tracker += 1
