@@ -43,9 +43,13 @@ class Game
       puts "    It's #{players[current_player].symbol}'s turn!"
       @player_selection = player_input
       board.update_board(@player_selection, players[current_player].symbol)
-      return if game_over?
+      break if game_over?
 
       @current_player = @current_player >= 1 ? 0 : 1
     end
+
+    system 'clear -x'
+    board.print_board
+    puts "    #{players[current_player].symbol} is the winner!"
   end
 end
