@@ -93,7 +93,8 @@ class Board
     (0..5).reverse_each do |row_index|
       print '|'
       board_arr.each do |column|
-        print column[row_index] || ' - '
+        value = column[row_index] || '-'
+        print " #{value} "
       end
       puts '|'
     end
