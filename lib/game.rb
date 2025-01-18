@@ -36,7 +36,7 @@ class Game
     false
   end
 
-  def take_turn
+  def play
     loop do
       board.print_board
       puts "    It's #{players[current_player].symbol}'s turn!"
