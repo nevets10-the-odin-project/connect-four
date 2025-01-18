@@ -45,7 +45,7 @@ class Game
       board.update_board(@player_selection, players[current_player].symbol)
       return if game_over?
 
-      @current_player >= 1 ? @current_player = 0 : @current_player += 1
+      @current_player = @current_player >= 1 ? 0 : 1
     end
   end
 end
