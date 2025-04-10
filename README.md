@@ -21,6 +21,7 @@ On the bright side, I put the techniques from the Intermediate Git lessons to go
 ## Brainstorming
 
 Classes
+
     Game
         Variables
             players
