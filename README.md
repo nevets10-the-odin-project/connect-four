@@ -16,8 +16,6 @@ I most likely need more time working with TDD to get a better feel for it, but a
 
 On the bright side, I put the techniques from the Intermediate Git lessons to good use for this project. Those lessons were extremely helpful with getting to understand how git works a bit more.
 
----
-
 ## Brainstorming
 
 Classes
